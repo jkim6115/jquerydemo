@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        const GETBOXID = "#box";
+        //position() : 선택함 요소의 포지션 위치값 리먼
+        const top = $(GETBOXID).position().top;
+        const left = $(GETBOXID).position().left;
+        //top : -50, left : -100
+        const top2 = $(GETBOXID).offset().top;
+        const left2 = $(GETBOXID).offset().left;
+        //top : 0, left : 500
+        console.log(top, left, top2, left2);
+
+        //width() : margin, padding, border를 제외한 가로크기 리턴
+        const w1 = $(GETBOXID).width();
+        console.log("width : ", w1);
+
+        //innerWidth() : padding을 포함한 가로크기 리턴
+        const w2 = $(GETBOXID).innerWidth();
+        console.log("innerWidth : ", w2);
+
+        //outerWidth() : border를 포함한 가로크기 리턴
+        const w3 = $(GETBOXID).outerWidth();
+        console.log("outerWidth : ", w3);
+
+        //outerWidth(true) : margin, padding, border를 포함한 가로크기 리턴
+        const w4 = $(GETBOXID).outerWidth(true);
+        console.log("outerWidth(true) : ", w4);
+      });
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border-width: 0;
+      }
+      #wrap {
+        width: 300px;
+        height: 200px;
+        background-color: #ccc;
+        position: relative;
+        top: 50px;
+        left: 400px;
+        margin: 0;
+      }
+      #box {
+        width: 50px;
+        height: 50px;
+        background-color: aqua;
+        position: relative;
+        top: -50px;
+        left: 100px;
+        padding: 5px;
+        border: 10px solid red;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <p id="box">박스1</p>
+    </div>
+    <p id="t1"></p>
+    <p id="t2"></p>
+    <p id="t3"></p>
+    <p id="t4"></p>
+  </body>
+</html>
